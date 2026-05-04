@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcane Results — Services & Pricing</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0B0B0F;
+    color: #E8E4D9;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #1A1A22;
+  }
+  
+  .logo-banner {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  
+  .logo-square {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #E8E4D9;
+    margin-bottom: 12px;
+  }
+  
+  .subtitle {
+    font-size: 16px;
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Bio section */
+  .bio {
+    background: #1A1A22;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 50px;
+    border-left: 3px solid #1FB6B2;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  
+  .bio-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 2px solid #1FB6B2;
+  }
+  
+  .bio-text p {
+    font-size: 15px;
+    color: #ccc;
+  }
+  
+  .bio .highlight {
+    color: #D4AF37;
+    font-weight: 600;
+  }
+  
+  /* Credentials */
+  .credentials {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .credential {
+    text-align: center;
+  }
+  
+  .credential .number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #D4AF37;
+  }
+  
+  .credential .label {
+    font-size: 12px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Service cards */
+  .services-header {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #1FB6B2;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  
+  .service-card {
+    background: #1A1A22;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 24px;
+    border: 1px solid #2a2a35;
+    transition: border-color 0.3s;
+  }
+  
+  .service-card:hover {
+    border-color: #1FB6B2;
+  }
+  
+  .service-tier {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #0E6F73;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  
+  .service-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #E8E4D9;
+    margin-bottom: 6px;
+  }
+  
+  .service-price {
+    font-size: 20px;
+    color: #D4AF37;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  
+  .service-desc {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 16px;
+  }
+  
+  .service-includes {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .service-includes li {
+    font-size: 14px;
+    color: #ccc;
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .service-includes li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: #1FB6B2;
+  }
+  
+  .service-timeline {
+    font-size: 13px;
+    color: #0E6F73;
+    margin-top: 14px;
+    font-style: italic;
+  }
+  
+  /* Best for section */
+  .best-for {
+    background: linear-gradient(135deg, #2E1A47 0%, #1A1A22 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin: 40px 0;
+    text-align: center;
+  }
+  
+  .best-for h3 {
+    font-size: 16px;
+    color: #F2D27A;
+    margin-bottom: 10px;
+  }
+  
+  .best-for p {
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  /* CTA */
+  .cta-section {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid #1A1A22;
+  }
+  
+  .cta-section h2 {
+    font-size: 24px;
+    color: #E8E4D9;
+    margin-bottom: 12px;
+  }
+  
+  .cta-section p {
+    font-size: 15px;
+    color: #999;
+    margin-bottom: 24px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: #1FB6B2;
+    color: #0B0B0F;
+    padding: 14px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.3s;
+  }
+  
+  .cta-button:hover {
+    background: #0E6F73;
+    color: #E8E4D9;
+  }
+  
+  .cta-note {
+    font-size: 13px;
+    color: #666;
+    margin-top: 16px;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #1A1A22;
+  }
+  
+  .footer-logo {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+  
+  .footer .brand-name {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: #1FB6B2;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  
+  .footer p {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .copyright {
+    font-size: 12px;
+    color: #444;
+    margin-top: 16px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container { padding: 30px 20px; }
+    .bio { flex-direction: column; align-items: center; text-align: center; }
+    .bio-photo { width: 100px; height: 100px; }
+    .credentials { gap: 20px; }
+    h1 { font-size: 24px; }
+    .service-title { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="header">
+    <img src="AR_logo-linkedin_banner2.png" alt="Arcane Results" class="logo-banner">
+    <h1>Services & Pricing</h1>
+    <p class="subtitle">Marketing systems that turn your expertise into consistent leads and revenue — built to run without you.</p>
+    
+    <div class="credentials">
+      <div class="credential">
+        <div class="number">200+</div>
+        <div class="label">#1 Amazon Launches</div>
+      </div>
+      <div class="credential">
+        <div class="number">15</div>
+        <div class="label">Years Experience</div>
+      </div>
+      <div class="credential">
+        <div class="number">100%</div>
+        <div class="label">US-Based</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="bio">
+    <img src="1. MASTER.png" alt="Sami Rae" class="bio-photo">
+    <div class="bio-text">
+      <p>Hi, I'm <span class="highlight">Sami Rae</span> — a marketing systems specialist. I design and build the full backend — landing pages, funnels, email sequences, CRM pipelines, and marketing automations — primarily in <span class="highlight">GoHighLevel</span> — so your audience finds you, your follow-up runs itself, and your calendar fills without you chasing anyone.</p>
+    </div>
+  </div>
+  
+  <div class="services-header">What I Build</div>
+  
+  <div class="service-card">
+    <div class="service-tier">Quick Build</div>
+    <div class="service-title">GHL Funnel & Automation Setup</div>
+    <div class="service-price">$500 – $1,500</div>
+    <div class="service-desc">A complete, working system — not just a landing page. I build your funnel, connect your CRM, and set up the automations so leads come in and get followed up with automatically.</div>
+    <ul class="service-includes">
+      <li>Sales funnel or landing page (GHL, WordPress, or custom)</li>
+      <li>Email nurture sequence (3-5 emails)</li>
+      <li>CRM pipeline with automated lead tagging and follow-up</li>
+      <li>Appointment booking integration</li>
+      <li>Walkthrough video so you know exactly how it works</li>
+    </ul>
+    <div class="service-timeline">Delivered in 3–7 days</div>
+  </div>
+  
+  <div class="service-card">
+    <div class="service-tier">Signature System</div>
+    <div class="service-title">Book-to-Business Funnel System</div>
+    <div class="service-price">$2,500 – $5,000</div>
+    <div class="service-desc">The full authority engine for authors, coaches, and consultants. I turn your book, course, or signature framework into an automated client acquisition system — from Amazon to your calendar.</div>
+    <ul class="service-includes">
+      <li>Book landing page with lead magnet</li>
+      <li>5-email nurture sequence that builds trust and drives action</li>
+      <li>CRM pipeline connecting readers to paid offers</li>
+      <li>Ad strategy document (Facebook/Google)</li>
+      <li>Post-launch optimization and reporting</li>
+    </ul>
+    <div class="service-timeline">Delivered in 2–3 weeks</div>
+  </div>
+  
+  <div class="service-card">
+    <div class="service-tier">Ongoing Partnership</div>
+    <div class="service-title">Monthly Marketing Retainer</div>
+    <div class="service-price">$1,500 – $3,000/mo</div>
+    <div class="service-desc">I run your marketing systems month-to-month so you can focus on your business. Funnel optimization, email campaigns, automation management, and a monthly strategy call to keep everything moving.</div>
+    <ul class="service-includes">
+      <li>Ongoing funnel optimization and A/B testing</li>
+      <li>Monthly email campaigns and sequence updates</li>
+      <li>CRM and automation management</li>
+      <li>Monthly strategy call with reporting</li>
+      <li>Priority response time</li>
+    </ul>
+    <div class="service-timeline">Month-to-month — cancel anytime</div>
+  </div>
+  
+  <div class="service-card">
+    <div class="service-tier">Starting Point</div>
+    <div class="service-title">AI-Powered Marketing Audit</div>
+    <div class="service-price">$100 – $300</div>
+    <div class="service-desc">Not sure where to start? I'll audit your entire digital presence — website, funnels, email, SEO, social — and deliver a clear action plan with priorities ranked by impact. Quick wins flagged so you can see results in week one.</div>
+    <ul class="service-includes">
+      <li>Website and funnel conversion analysis</li>
+      <li>SEO gap assessment</li>
+      <li>Email marketing review</li>
+      <li>Competitor comparison</li>
+      <li>90-day action plan with quick wins</li>
+    </ul>
+    <div class="service-timeline">Delivered in 2–5 days</div>
+  </div>
+  
+  <div class="best-for">
+    <h3>Best For</h3>
+    <p>Coaches, consultants, authors, course creators, and small businesses that need a marketing machine — not just a pretty page.</p>
+  </div>
+  
+  <div class="cta-section">
+    <h2>Let's Talk</h2>
+    <p>Book a free 30-minute call. I'll look at your current setup and give you specific recommendations before you spend a dollar.</p>
+    <a href="https://calendar.app.google/VJKpbpV7ZQ8uyScA8" class="cta-button" target="_blank">Book a Free Call</a>
+    <p class="cta-note">No pressure, no pitch deck — just straight talk about what's working and what's not.</p>
+  </div>
+  
+  <div class="footer">
+    <img src="AR_logo_primary.png" alt="Arcane Results" class="footer-logo">
+    <div class="brand-name">Arcane Results</div>
+    <p>Invisible Systems. Visible Results.</p>
+    <p style="margin-top: 8px;">sami@arcaneresults.com</p>
+    <p class="copyright">&copy; 2026 Arcane Results. All rights reserved.</p>
+  </div>
+  
+</div>
+</body>
+</html>
