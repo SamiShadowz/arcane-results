@@ -3,417 +3,1273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arcane Results — Services & Pricing</title>
+<title>Arcane Results — Marketing Systems for Coaches, Authors & Experts</title>
+<meta name="description" content="Marketing systems that turn your expertise into consistent leads and revenue. Funnels, automations, and CRM systems built in GoHighLevel.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  
+
   body {
     font-family: 'Inter', sans-serif;
     background: #0B0B0F;
     color: #E8E4D9;
     line-height: 1.6;
   }
-  
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 60px 40px;
+
+  /* ============ NAV ============ */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,11,15,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(26,26,34,0.8);
   }
-  
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #1A1A22;
+
+  .nav-logo {
+    height: 140px;
+    width: auto;
+    margin: -20px 0;
   }
-  
-  .logo-banner {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 30px;
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    color: #999;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: #E8E4D9; }
+
+  .nav-cta {
+    font-size: 13px !important;
+    color: #1FB6B2 !important;
+    border: 1px solid #1FB6B2;
+    padding: 10px 22px;
+    border-radius: 6px;
+    transition: all 0.3s !important;
+    letter-spacing: 1px !important;
+  }
+
+  .nav-cta:hover {
+    background: #1FB6B2;
+    color: #0B0B0F !important;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 85vh;
+    padding: 120px 50px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 75% 50%, rgba(31,182,178,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(46,26,71,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 560px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-photo-wrapper {
+    position: relative;
+    width: 480px;
+    height: 560px;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 16px;
+    filter: brightness(0.95);
+  }
+
+  .hero-logo-overlay {
+    position: absolute;
+    top: 20px;
+    right: -40px;
+    width: 200px;
+    opacity: 0.3;
+    filter: drop-shadow(0 0 30px rgba(31,182,178,0.2));
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #1FB6B2;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid rgba(31,182,178,0.3);
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    background: rgba(31,182,178,0.05);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #E8E4D9;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 span { color: #1FB6B2; }
+
+  .hero-sub {
+    font-size: 17px;
+    color: #aaa;
+    line-height: 1.75;
+    margin-bottom: 36px;
+    max-width: 480px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1FB6B2;
+    color: #0B0B0F;
+    padding: 18px 38px;
     border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
   }
-  
-  .logo-square {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-    border-radius: 12px;
+
+  .hero-cta:hover {
+    background: #17a09d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(31,182,178,0.3);
   }
-  
-  h1 {
-    font-size: 32px;
+
+  .hero-cta::after {
+    content: '\2192';
+    font-size: 18px;
+  }
+
+  /* ============ TRUST BAR ============ */
+  .trust-bar {
+    border-top: 1px solid #1A1A22;
+    border-bottom: 1px solid #1A1A22;
+    padding: 24px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .trust-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .trust-logos img {
+    height: 24px;
+    width: auto;
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.6;
+    transition: all 0.3s;
+  }
+
+  .trust-logos img:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+  }
+
+  /* ============ CONTAINER ============ */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ============ PAIN SECTION ============ */
+  .pain-section {
+    padding: 90px 0 80px;
+  }
+
+  .pain-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .pain-header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #1FB6B2;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+    font-weight: 600;
+  }
+
+  .pain-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
     font-weight: 700;
     color: #E8E4D9;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    line-height: 1.25;
   }
-  
-  .subtitle {
+
+  .pain-header p {
     font-size: 16px;
     color: #999;
-    max-width: 600px;
+    max-width: 580px;
     margin: 0 auto;
+    line-height: 1.7;
   }
-  
-  /* Bio section */
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .pain-card {
+    background: #1A1A22;
+    border-radius: 14px;
+    padding: 32px 28px;
+    border: 1px solid #2a2a35;
+    text-align: center;
+  }
+
+  .pain-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .pain-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #E8E4D9;
+    margin-bottom: 10px;
+  }
+
+  .pain-card p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+  }
+
+  .pain-card .pain-highlight {
+    color: #D4AF37;
+    font-weight: 600;
+  }
+
+  /* ============ ABOUT / STATS ============ */
+  .about-section {
+    padding: 60px 0 80px;
+    border-top: 1px solid #1A1A22;
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 0 auto 50px;
+    max-width: 700px;
+    background: #1A1A22;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #2a2a35;
+  }
+
+  .stat {
+    flex: 1;
+    text-align: center;
+    padding: 32px 20px;
+    position: relative;
+  }
+
+  .stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: #2a2a35;
+  }
+
+  .stat-icon { font-size: 24px; margin-bottom: 10px; }
+
+  .stat .number {
+    font-size: 34px;
+    font-weight: 800;
+    color: #D4AF37;
+    letter-spacing: -0.5px;
+  }
+
+  .stat .label {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
   .bio {
     background: #1A1A22;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 50px;
+    border-radius: 16px;
+    padding: 36px;
     border-left: 3px solid #1FB6B2;
     display: flex;
     align-items: flex-start;
-    gap: 24px;
+    gap: 28px;
   }
-  
+
   .bio-photo {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center top;
     flex-shrink: 0;
     border: 2px solid #1FB6B2;
+    box-shadow: 0 4px 20px rgba(31,182,178,0.15);
   }
-  
+
   .bio-text p {
     font-size: 15px;
     color: #ccc;
+    line-height: 1.75;
   }
-  
-  .bio .highlight {
-    color: #D4AF37;
-    font-weight: 600;
-  }
-  
-  /* Credentials */
-  .credentials {
+
+  .bio .highlight { color: #D4AF37; font-weight: 600; }
+
+  .bio .us-note {
+    font-size: 13px;
+    color: #777;
+    margin-top: 12px;
     display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
   }
-  
-  .credential {
+
+  /* ============ FRAMEWORK SECTION ============ */
+  .framework-section {
+    padding: 80px 0;
+    border-top: 1px solid #1A1A22;
+  }
+
+  .framework-header {
     text-align: center;
+    margin-bottom: 60px;
   }
-  
-  .credential .number {
-    font-size: 28px;
-    font-weight: 700;
-    color: #D4AF37;
-  }
-  
-  .credential .label {
+
+  .framework-header .eyebrow {
     font-size: 12px;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  /* Service cards */
-  .services-header {
-    font-size: 12px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: #1FB6B2;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
+    display: block;
+    font-weight: 600;
   }
-  
+
+  .framework-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #E8E4D9;
+    margin-bottom: 14px;
+  }
+
+  .framework-header p {
+    font-size: 15px;
+    color: #777;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .framework-steps {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+
+  .framework-steps::before {
+    content: '';
+    position: absolute;
+    top: 38px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, #1FB6B2, #D4AF37);
+    opacity: 0.3;
+  }
+
+  .framework-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 12px;
+  }
+
+  .step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #1A1A22;
+    border: 2px solid #1FB6B2;
+    color: #1FB6B2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 auto 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .framework-step h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #E8E4D9;
+    margin-bottom: 8px;
+  }
+
+  .framework-step p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .framework-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(31,182,178,0.05) 0%, rgba(46,26,71,0.08) 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(31,182,178,0.15);
+  }
+
+  .framework-bottom p {
+    font-size: 15px;
+    color: #ccc;
+    font-style: italic;
+  }
+
+  .framework-bottom p span {
+    color: #1FB6B2;
+    font-weight: 600;
+  }
+
+  /* ============ SERVICES ============ */
+  .services-section {
+    padding: 80px 0;
+    border-top: 1px solid #1A1A22;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-header .eyebrow {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #1FB6B2;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: block;
+    font-weight: 600;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #1FB6B2, #D4AF37);
+    margin: 0 auto 14px;
+    border-radius: 2px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: #E8E4D9;
+    margin-bottom: 12px;
+  }
+
+  .section-header p {
+    font-size: 15px;
+    color: #777;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
   .service-card {
     background: #1A1A22;
-    border-radius: 12px;
-    padding: 35px;
+    border-radius: 16px;
+    padding: 40px;
     margin-bottom: 24px;
     border: 1px solid #2a2a35;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+    position: relative;
   }
-  
+
   .service-card:hover {
     border-color: #1FB6B2;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(31,182,178,0.08);
   }
-  
+
   .service-tier {
     font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
     color: #0E6F73;
     text-transform: uppercase;
     margin-bottom: 8px;
-  }
-  
-  .service-title {
-    font-size: 22px;
     font-weight: 600;
+  }
+
+  .service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
     color: #E8E4D9;
     margin-bottom: 6px;
   }
-  
+
   .service-price {
-    font-size: 20px;
+    font-size: 22px;
     color: #D4AF37;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
   }
-  
+
+  .price-note {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+
   .service-desc {
     font-size: 14px;
     color: #999;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    line-height: 1.7;
   }
-  
-  .service-includes {
-    list-style: none;
-    padding: 0;
-  }
-  
+
+  .service-includes { list-style: none; padding: 0; }
+
   .service-includes li {
     font-size: 14px;
     color: #ccc;
-    padding: 5px 0;
-    padding-left: 20px;
+    padding: 6px 0 6px 22px;
     position: relative;
   }
-  
+
   .service-includes li::before {
     content: "\2192";
     position: absolute;
     left: 0;
     color: #1FB6B2;
+    font-weight: 600;
   }
-  
+
+  .service-best-for {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #2a2a35;
+    font-size: 13px;
+    color: #777;
+  }
+
+  .service-best-for span {
+    color: #D4AF37;
+    font-weight: 600;
+  }
+
   .service-timeline {
     font-size: 13px;
     color: #0E6F73;
-    margin-top: 14px;
+    margin-top: 12px;
     font-style: italic;
   }
-  
-  /* Best for section */
-  .best-for {
-    background: linear-gradient(135deg, #2E1A47 0%, #1A1A22 100%);
+
+  .counter-position {
+    text-align: center;
+    margin-top: 40px;
+    padding: 24px 32px;
+    border: 1px solid #2a2a35;
     border-radius: 12px;
-    padding: 30px;
-    margin: 40px 0;
-    text-align: center;
+    background: rgba(26,26,34,0.5);
   }
-  
-  .best-for h3 {
-    font-size: 16px;
-    color: #F2D27A;
-    margin-bottom: 10px;
-  }
-  
-  .best-for p {
+
+  .counter-position p {
     font-size: 14px;
-    color: #ccc;
+    color: #888;
+    font-style: italic;
   }
-  
-  /* CTA */
-  .cta-section {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 40px;
+
+  .counter-position p span {
+    color: #E8E4D9;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials-section {
+    padding: 80px 0;
     border-top: 1px solid #1A1A22;
   }
-  
-  .cta-section h2 {
-    font-size: 24px;
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .testimonial-card {
+    background: #1A1A22;
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid #2a2a35;
+    transition: border-color 0.3s;
+  }
+
+  .testimonial-card:hover { border-color: #0E6F73; }
+
+  .testimonial-stars {
+    color: #D4AF37;
+    font-size: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-text {
+    font-size: 13.5px;
+    color: #bbb;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-size: 13px;
+    color: #D4AF37;
+    font-weight: 600;
+  }
+
+  .testimonial-toggle { text-align: center; margin-top: 24px; }
+
+  .testimonial-toggle button {
+    background: transparent;
+    border: 1px solid #2a2a35;
+    color: #1FB6B2;
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+  }
+
+  .testimonial-toggle button:hover {
+    border-color: #1FB6B2;
+    background: rgba(31,182,178,0.05);
+  }
+
+  .testimonial-hidden { display: none; }
+
+  /* ============ FAQ ============ */
+  .faq-section {
+    padding: 80px 0;
+    border-top: 1px solid #1A1A22;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #2a2a35;
+    padding: 24px 0;
+  }
+
+  .faq-item:first-of-type { border-top: 1px solid #2a2a35; }
+
+  .faq-question {
+    font-size: 16px;
+    font-weight: 600;
     color: #E8E4D9;
-    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
   }
-  
-  .cta-section p {
-    font-size: 15px;
+
+  .faq-question::after {
+    content: '+';
+    font-size: 22px;
+    color: #1FB6B2;
+    font-weight: 300;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    font-size: 14px;
     color: #999;
-    margin-bottom: 24px;
+    line-height: 1.75;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding-top: 0;
   }
-  
+
+  .faq-item.active .faq-answer {
+    max-height: 300px;
+    padding-top: 16px;
+  }
+
+  /* ============ CTA ============ */
+  .cta-section {
+    text-align: center;
+    padding: 80px 0;
+    border-top: 1px solid #1A1A22;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: #E8E4D9;
+    margin-bottom: 14px;
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .cta-button {
     display: inline-block;
     background: #1FB6B2;
     color: #0B0B0F;
-    padding: 14px 40px;
+    padding: 18px 48px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    transition: background 0.3s;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
   }
-  
+
   .cta-button:hover {
-    background: #0E6F73;
-    color: #E8E4D9;
+    background: #17a09d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(31,182,178,0.25);
   }
-  
-  .cta-note {
-    font-size: 13px;
-    color: #666;
-    margin-top: 16px;
-  }
-  
-  /* Footer */
+
+  .cta-note { font-size: 13px; color: #666; margin-top: 18px; }
+
+  /* ============ FOOTER ============ */
   .footer {
     text-align: center;
-    margin-top: 60px;
-    padding-top: 30px;
+    padding: 40px 40px 30px;
     border-top: 1px solid #1A1A22;
   }
-  
-  .footer-logo {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-  }
-  
+
+  .footer-logo { width: 50px; height: 50px; margin-bottom: 12px; border-radius: 8px; }
+
   .footer .brand-name {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 4px;
     color: #1FB6B2;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
-  
-  .footer p {
-    font-size: 13px;
-    color: #666;
-  }
-  
-  .copyright {
+
+  .footer .tagline-footer { font-size: 12px; color: #555; margin-bottom: 12px; }
+
+  .footer-links { margin-top: 14px; }
+
+  .footer-links a {
     font-size: 12px;
-    color: #444;
-    margin-top: 16px;
+    color: #555;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color 0.3s;
   }
-  
-  /* Responsive */
-  @media (max-width: 600px) {
-    .container { padding: 30px 20px; }
+
+  .footer-links a:hover { color: #1FB6B2; }
+
+  .copyright { font-size: 11px; color: #333; margin-top: 14px; }
+
+  /* ============ SMOOTH SCROLL ============ */
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .hero {
+      flex-direction: column;
+      padding: 120px 30px 40px;
+      text-align: center;
+    }
+    .hero-content { max-width: 100%; }
+    .hero-sub { margin-left: auto; margin-right: auto; }
+    .hero-visual { display: none; }
+    .hero h1 { font-size: 34px; }
+    .nav { padding: 16px 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .trust-bar { padding: 20px; gap: 30px; }
+    .trust-logos { gap: 24px; }
+    .trust-logos img { height: 18px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .framework-steps { flex-direction: column; gap: 32px; }
+    .framework-steps::before { display: none; }
+  }
+
+  @media (max-width: 700px) {
+    .container { padding: 0 20px; }
+    .stats-bar { flex-direction: column; }
+    .stat:not(:last-child)::after { display: none; }
+    .stat { padding: 20px; }
     .bio { flex-direction: column; align-items: center; text-align: center; }
     .bio-photo { width: 100px; height: 100px; }
-    .credentials { gap: 20px; }
-    h1 { font-size: 24px; }
-    .service-title { font-size: 18px; }
+    .service-card { padding: 28px; }
+    .service-title { font-size: 20px; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .section-header h2 { font-size: 26px; }
+    .pain-header h2 { font-size: 28px; }
+    .framework-header h2 { font-size: 28px; }
+    .cta-section h2 { font-size: 26px; }
   }
 </style>
 </head>
 <body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <img src="AR_logo-linkedin_banner2 copy.png" alt="Arcane Results" class="nav-logo">
+  <div class="nav-links">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#services">Services</a>
+    <a href="#results">Results</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://calendar.app.google/VJKpbpV7ZQ8uyScA8" target="_blank" class="nav-cta">Book a Call</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">For Coaches, Consultants &amp; Authors</div>
+    <h1>Your Expertise Deserves a System That <span>Sells for You</span></h1>
+    <p class="hero-sub">You're great at what you do. But your marketing doesn't show it. I build the funnels, automations, and follow-up systems that turn your knowledge into booked calls, paying clients, and predictable revenue &mdash; while you focus on what you're actually good at.</p>
+    <a href="https://calendar.app.google/VJKpbpV7ZQ8uyScA8" class="hero-cta" target="_blank">Book a Free 30-Min Strategy Call</a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo-wrapper">
+      <img src="1. MASTER.png" alt="Sami Rae — Arcane Results" class="hero-photo">
+      <img src="AR_logo_primary.png" alt="" class="hero-logo-overlay">
+    </div>
+  </div>
+</div>
+
+<!-- ============ TRUST BAR ============ -->
+<div class="trust-bar">
+  <span class="trust-label">Featured In</span>
+  <div class="trust-logos">
+    <img src="tb_market watch.png" alt="MarketWatch">
+    <img src="tb_digital journal.webp" alt="Digital Journal">
+    <img src="tb_authority mag.jpg" alt="Authority Magazine">
+    <img src="tb_wcvb.jpeg" alt="WCVB News">
+    <img src="tb_yahoo.png" alt="Yahoo Finance">
+  </div>
+</div>
+
+<!-- ============ PAIN SECTION ============ -->
 <div class="container">
-  
-  <div class="header">
-    <img src="AR_logo-linkedin_banner2 copy.png" alt="Arcane Results" class="logo-banner">
-    <h1>Services & Pricing</h1>
-    <p class="subtitle">Marketing systems that turn your expertise into consistent leads and revenue — built to run without you.</p>
-    
-    <div class="credentials">
-      <div class="credential">
-        <div class="number">200+</div>
-        <div class="label">#1 Amazon Launches</div>
+  <div class="pain-section">
+    <div class="pain-header">
+      <span class="eyebrow">Sound Familiar?</span>
+      <h2>You're the Expert. Marketing Shouldn't Be Your Second Job.</h2>
+      <p>You built a business around your expertise &mdash; not around funnels, automations, and lead nurturing. But somewhere along the way, self-marketing became a full-time gig that pulls you away from the work you actually love.</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">&#128549;</div>
+        <h3>The DIY Trap</h3>
+        <p>You've watched the courses, bought the templates, stitched together 6 different tools &mdash; and your "system" still leaks leads. You're spending <span class="pain-highlight">more time marketing than serving clients.</span></p>
       </div>
-      <div class="credential">
+      <div class="pain-card">
+        <div class="pain-icon">&#128148;</div>
+        <h3>Cheap Freelancers Who Ghost</h3>
+        <p>You hired someone cheap. They overpromised, built half a funnel, then disappeared. Now you're <span class="pain-highlight">worse off than when you started</span> &mdash; and you still don't understand how any of it works.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">&#128184;</div>
+        <h3>Agencies That Drain Budgets</h3>
+        <p>The agency charged you $3K/month for "strategy calls" and a Canva template. Six months later, you have <span class="pain-highlight">a pretty brand board and no revenue system.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT / STATS ============ -->
+  <div class="about-section" id="about">
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-icon">&#127942;</div>
+        <div class="number">193+</div>
+        <div class="label">#1 Bestsellers<br>Launched</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">&#128200;</div>
+        <div class="number">43%</div>
+        <div class="label">Email Campaign<br>Conversion Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">&#128736;&#65039;</div>
         <div class="number">15</div>
-        <div class="label">Years Experience</div>
+        <div class="label">Years Building<br>Revenue Systems</div>
       </div>
-      <div class="credential">
-        <div class="number">100%</div>
-        <div class="label">US-Based</div>
+    </div>
+
+    <div class="bio">
+      <img src="1. MASTER.png" alt="Sami Rae" class="bio-photo">
+      <div class="bio-text">
+        <p>Hi, I'm <span class="highlight">Sami Rae</span>. I've spent 15 years building the marketing systems behind 193+ #1 Amazon bestselling books &mdash; every single one hit the top spot. I didn't just write copy or "run ads." I built the full backend: the funnels, the email sequences, the CRM pipelines, the automations that turned readers into leads and leads into high-ticket clients.</p>
+        <p style="margin-top:12px;">Now I build those same revenue systems for coaches, consultants, and authors using <span class="highlight">GoHighLevel (GHL)</span>. You bring the expertise. I build the machine that monetizes it.</p>
+        <div class="us-note">&#127482;&#127480; Based in Austin, TX &mdash; US-based, US hours</div>
       </div>
     </div>
   </div>
-  
-  <div class="bio">
-    <img src="1. MASTER.png" alt="Sami Rae" class="bio-photo">
-    <div class="bio-text">
-      <p>Hi, I'm <span class="highlight">Sami Rae</span> — a marketing systems specialist. I design and build the full backend — landing pages, funnels, email sequences, CRM pipelines, and marketing automations — primarily in <span class="highlight">GoHighLevel</span> — so your audience finds you, your follow-up runs itself, and your calendar fills without you chasing anyone.</p>
+
+  <!-- ============ FRAMEWORK: THE INVISIBLE SYSTEM ============ -->
+  <div class="framework-section" id="how-it-works">
+    <div class="framework-header">
+      <span class="eyebrow">The Process</span>
+      <h2>The Invisible System Behind Visible Results</h2>
+      <p>Every engagement follows the same proven framework &mdash; whether you need a single funnel or a full revenue engine.</p>
+    </div>
+
+    <div class="framework-steps">
+      <div class="framework-step">
+        <div class="step-number">1</div>
+        <h3>Diagnose</h3>
+        <p>Strategy call. We identify your offer, audience, bottlenecks, and revenue goals.</p>
+      </div>
+      <div class="framework-step">
+        <div class="step-number">2</div>
+        <h3>Design</h3>
+        <p>You get a clear system blueprint &mdash; steps, tools, and a customized plan with pricing.</p>
+      </div>
+      <div class="framework-step">
+        <div class="step-number">3</div>
+        <h3>Build</h3>
+        <p>I set up the pages, automations, integrations, and lead flow. You stay focused on clients.</p>
+      </div>
+      <div class="framework-step">
+        <div class="step-number">4</div>
+        <h3>Launch</h3>
+        <p>Everything goes live. I walk you through how it works so nothing feels like a black box.</p>
+      </div>
+      <div class="framework-step">
+        <div class="step-number">5</div>
+        <h3>Optimize</h3>
+        <p>We review performance, tighten conversion points, and improve follow-up sequences.</p>
+      </div>
+    </div>
+
+    <div class="framework-bottom">
+      <p><span>I build it in the background.</span> You focus on being you and fulfilling for your clients.</p>
     </div>
   </div>
-  
-  <div class="services-header">What I Build</div>
-  
-  <div class="service-card">
-    <div class="service-tier">Quick Build</div>
-    <div class="service-title">GHL Funnel & Automation Setup</div>
-    <div class="service-price">$500 – $1,500</div>
-    <div class="service-desc">A complete, working system — not just a landing page. I build your funnel, connect your CRM, and set up the automations so leads come in and get followed up with automatically.</div>
-    <ul class="service-includes">
-      <li>Sales funnel or landing page (GHL, WordPress, or custom)</li>
-      <li>Email nurture sequence (3-5 emails)</li>
-      <li>CRM pipeline with automated lead tagging and follow-up</li>
-      <li>Appointment booking integration</li>
-      <li>Walkthrough video so you know exactly how it works</li>
-    </ul>
-    <div class="service-timeline">Delivered in 3–7 days</div>
+
+  <!-- ============ SERVICES ============ -->
+  <div class="services-section" id="services">
+    <div class="section-header">
+      <span class="eyebrow">Services</span>
+      <div class="section-divider"></div>
+      <h2>Choose Your Starting Point</h2>
+      <p>Every service includes done-for-you implementation. No templates. No guesswork.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-tier">Starting Point</div>
+      <div class="service-title">Strategic Growth Blueprint</div>
+      <div class="service-price">$200 &ndash; $500</div>
+      <div class="price-note">Depends on business complexity and scope of the audit.</div>
+      <div class="service-desc">Not sure what's broken or where to start? I'll dig into your entire marketing presence &mdash; website, funnels, email, offers &mdash; and hand you a clear, prioritized plan with specific next steps. No vague advice. Just what to fix, in what order, and how.</div>
+      <ul class="service-includes">
+        <li>Full marketing and business audit (website, funnels, email, social, offers)</li>
+        <li>Revenue opportunity analysis &mdash; what's leaking and what to fix first</li>
+        <li>AI integration roadmap &mdash; where and how to start using AI in your business</li>
+        <li>Prioritized 90-day action plan with quick wins flagged</li>
+        <li>Implementation options: done-for-you quote, done-with-you plan, or DIY guide</li>
+      </ul>
+      <div class="service-best-for"><span>Best for:</span> Business owners who need clarity before investing in buildout.</div>
+      <div class="service-timeline">Delivered in 3&ndash;5 days</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-tier">Build</div>
+      <div class="service-title">GoHighLevel (GHL) Funnel &amp; Automation Setup</div>
+      <div class="service-price">$500 &ndash; $1,500</div>
+      <div class="price-note">Price varies by number of pages, email sequences, and integrations needed.</div>
+      <div class="service-desc">A complete, working GoHighLevel system &mdash; not just a landing page. I build your funnel, connect your CRM, and set up the automations so leads come in and get followed up with automatically.</div>
+      <ul class="service-includes">
+        <li>Sales funnel or landing pages (GHL, WordPress, or custom)</li>
+        <li>Email nurture sequences (3&ndash;10 emails)</li>
+        <li>CRM pipeline with automated lead tagging and follow-up</li>
+        <li>Appointment booking and calendar integration</li>
+        <li>SMS follow-up sequences and workflow triggers</li>
+        <li>Walkthrough video so you know exactly how it works</li>
+      </ul>
+      <div class="service-best-for"><span>Best for:</span> Businesses that already know what they need and want it implemented.</div>
+      <div class="service-timeline">Delivered in 5&ndash;10 days</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-tier">Signature System</div>
+      <div class="service-title">Book-to-Business Revenue System</div>
+      <div class="service-price">$2,500 &ndash; $5,000</div>
+      <div class="price-note">Scope depends on funnel complexity, number of sequences, and custom design work.</div>
+      <div class="service-desc">The full authority engine for authors, coaches, and consultants. I turn your book, course, or signature framework into an automated client acquisition system &mdash; from Amazon to your calendar.</div>
+      <ul class="service-includes">
+        <li>Complete lead-to-client funnel (landing page, lead magnet, sales page)</li>
+        <li>5+ email nurture sequences that build trust and drive action</li>
+        <li>GHL CRM pipeline connecting readers/followers to paid offers</li>
+        <li>Ad strategy document (Facebook/Google)</li>
+        <li>Upsell flows, booking integration, and post-purchase automation</li>
+        <li>Post-launch optimization and performance reporting</li>
+      </ul>
+      <div class="service-best-for"><span>Best for:</span> Service providers who need a complete lead-to-client system.</div>
+      <div class="service-timeline">Delivered in 2&ndash;3 weeks</div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-tier">Ongoing Partnership</div>
+      <div class="service-title">Monthly Marketing Retainer</div>
+      <div class="service-price">$1,500 &ndash; $3,000/mo</div>
+      <div class="price-note">Based on hours, channels managed, and volume of campaigns per month.</div>
+      <div class="service-desc">I run your marketing systems month-to-month so you can focus on your business. Funnel optimization, email campaigns, GHL automation management, and a monthly strategy call to keep everything growing.</div>
+      <ul class="service-includes">
+        <li>Ongoing funnel optimization and A/B testing</li>
+        <li>Monthly email campaigns and sequence updates</li>
+        <li>GHL CRM and automation management</li>
+        <li>Monthly strategy call with performance reporting</li>
+        <li>Priority response time (same-day)</li>
+      </ul>
+      <div class="service-best-for"><span>Best for:</span> Businesses that want ongoing optimization and growth support.</div>
+      <div class="service-timeline">Month-to-month &mdash; cancel anytime</div>
+    </div>
+
+    <div class="counter-position">
+      <p>Not for businesses looking for hacks, fake urgency, or vanity metrics.<br><span>This is for owners who want a practical revenue system built properly.</span></p>
+    </div>
   </div>
-  
-  <div class="service-card">
-    <div class="service-tier">Signature System</div>
-    <div class="service-title">Book-to-Business Funnel System</div>
-    <div class="service-price">$2,500 – $5,000</div>
-    <div class="service-desc">The full authority engine for authors, coaches, and consultants. I turn your book, course, or signature framework into an automated client acquisition system — from Amazon to your calendar.</div>
-    <ul class="service-includes">
-      <li>Book landing page with lead magnet</li>
-      <li>5-email nurture sequence that builds trust and drives action</li>
-      <li>CRM pipeline connecting readers to paid offers</li>
-      <li>Ad strategy document (Facebook/Google)</li>
-      <li>Post-launch optimization and reporting</li>
-    </ul>
-    <div class="service-timeline">Delivered in 2–3 weeks</div>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <div class="testimonials-section" id="results">
+    <div class="section-header">
+      <span class="eyebrow">Proof</span>
+      <div class="section-divider"></div>
+      <h2>What Clients Say</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"She helped me turn it all into a clear funnel with automations, follow-up emails, and a simple path for leads to become buyers. The biggest win was that I finally understood how my marketing system worked and what to focus on next."</div>
+        <div class="testimonial-author">&mdash; Melissa G.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam came in, cleaned up the moving parts, built the funnel, connected the automations, and explained everything in a way that actually made sense. She didn't just 'do the tech' &mdash; she helped me see how the whole system should support sales."</div>
+        <div class="testimonial-author">&mdash; Kevin R.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam helped me turn my book into more than just a book. She created a funnel around it, helped organize the lead magnet, follow-up emails, and reader journey, and gave me a real strategy for turning book traffic into leads and conversations."</div>
+        <div class="testimonial-author">&mdash; Amanda P.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"She didn't just give me ideas &mdash; she turned them into pages, emails, automations, and next steps. It felt like having a marketing strategist, systems person, and funnel builder in one."</div>
+        <div class="testimonial-author">&mdash; Jason K.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam took what I had, organized the message, built the system, and got everything moving fast. The process was clear, efficient, and much less stressful than I expected."</div>
+        <div class="testimonial-author">&mdash; Rebecca H.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"She helped me create an actual revenue system &mdash; a clear offer, a landing page, email follow-up, and a way to track leads. I finally had something I could send people to with confidence."</div>
+        <div class="testimonial-author">&mdash; Brian M.</div>
+      </div>
+
+      <div class="testimonial-card testimonial-hidden">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam was easy to work with, clear in her communication, and great at translating messy ideas into a structured plan. I never felt talked down to, even when we were dealing with tech or automation."</div>
+        <div class="testimonial-author">&mdash; Jennifer W.</div>
+      </div>
+
+      <div class="testimonial-card testimonial-hidden">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam helped me clarify the offer, build the landing page, write the follow-up emails, and create a system that matched how I actually sell."</div>
+        <div class="testimonial-author">&mdash; David C.</div>
+      </div>
+
+      <div class="testimonial-card testimonial-hidden">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"Sam looked at my website, funnel, emails, and overall marketing flow, then gave me a clear action plan ranked by what would make the biggest difference first. I left with specific next steps instead of vague advice."</div>
+        <div class="testimonial-author">&mdash; Sarah L.</div>
+      </div>
+
+      <div class="testimonial-card testimonial-hidden">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="testimonial-text">"The funnel she built made my business look more established and gave me a much stronger foundation for launching, advertising, and following up with leads."</div>
+        <div class="testimonial-author">&mdash; Marcus T.</div>
+      </div>
+    </div>
+
+    <div class="testimonial-toggle">
+      <button onclick="document.querySelectorAll('.testimonial-hidden').forEach(el=>{el.style.display=el.style.display==='block'?'none':'block'});this.textContent=this.textContent.includes('More')?'Show Less':'Read More Reviews'">Read More Reviews</button>
+    </div>
   </div>
-  
-  <div class="service-card">
-    <div class="service-tier">Ongoing Partnership</div>
-    <div class="service-title">Monthly Marketing Retainer</div>
-    <div class="service-price">$1,500 – $3,000/mo</div>
-    <div class="service-desc">I run your marketing systems month-to-month so you can focus on your business. Funnel optimization, email campaigns, automation management, and a monthly strategy call to keep everything moving.</div>
-    <ul class="service-includes">
-      <li>Ongoing funnel optimization and A/B testing</li>
-      <li>Monthly email campaigns and sequence updates</li>
-      <li>CRM and automation management</li>
-      <li>Monthly strategy call with reporting</li>
-      <li>Priority response time</li>
-    </ul>
-    <div class="service-timeline">Month-to-month — cancel anytime</div>
+
+  <!-- ============ FAQ ============ -->
+  <div class="faq-section" id="faq">
+    <div class="section-header">
+      <span class="eyebrow">FAQ</span>
+      <div class="section-divider"></div>
+      <h2>Common Questions</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if I'm not sure which service I need?</div>
+      <div class="faq-answer">That's exactly what the strategy call is for. We'll talk through where you are, where you want to go, and I'll recommend the right starting point. No pressure to buy anything on the call.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need a GoHighLevel account?</div>
+      <div class="faq-answer">If we're building in GHL, yes &mdash; you'll need an active account. If you don't have one yet, I'll help you choose the right plan during our strategy call. I also build on WordPress and custom platforms if that's a better fit.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do you write the copy or do I need to provide it?</div>
+      <div class="faq-answer">I write all funnel copy, email sequences, and page content. If you have existing copy you love, I'll work with that. Either way, you approve everything before it goes live.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long does a typical project take?</div>
+      <div class="faq-answer">A Strategic Growth Blueprint takes 3&ndash;5 days. A funnel build takes 5&ndash;10 days. A full revenue system takes 2&ndash;3 weeks. Every project starts with a clear timeline so you know exactly what to expect.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if I'm not tech-savvy?</div>
+      <div class="faq-answer">That's the whole point. I build the system, record a walkthrough video so you understand how it works, and make sure you're never stuck. You don't need to be technical &mdash; you just need to know your business.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can you integrate with my existing tools?</div>
+      <div class="faq-answer">Yes &mdash; Stripe, PayPal, Calendly, Kajabi, Teachable, Zapier, and most major platforms. If you're not sure whether your stack works, just ask on the strategy call.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What's your refund policy?</div>
+      <div class="faq-answer">I scope every project before you pay so there are no surprises. If at any point during the build you feel it's not the right fit, we'll discuss it directly. Full details are in my Terms of Service.</div>
+    </div>
   </div>
-  
-  <div class="service-card">
-    <div class="service-tier">Starting Point</div>
-    <div class="service-title">AI-Powered Marketing Audit</div>
-    <div class="service-price">$100 – $300</div>
-    <div class="service-desc">Not sure where to start? I'll audit your entire digital presence — website, funnels, email, SEO, social — and deliver a clear action plan with priorities ranked by impact. Quick wins flagged so you can see results in week one.</div>
-    <ul class="service-includes">
-      <li>Website and funnel conversion analysis</li>
-      <li>SEO gap assessment</li>
-      <li>Email marketing review</li>
-      <li>Competitor comparison</li>
-      <li>90-day action plan with quick wins</li>
-    </ul>
-    <div class="service-timeline">Delivered in 2–5 days</div>
-  </div>
-  
-  <div class="best-for">
-    <h3>Best For</h3>
-    <p>Coaches, consultants, authors, course creators, and small businesses that need a marketing machine — not just a pretty page.</p>
-  </div>
-  
+
+  <!-- ============ FINAL CTA ============ -->
   <div class="cta-section">
-    <h2>Let's Talk</h2>
-    <p>Book a free 30-minute call. I'll look at your current setup and give you specific recommendations before you spend a dollar.</p>
-    <a href="https://calendar.app.google/VJKpbpV7ZQ8uyScA8" class="cta-button" target="_blank">Book a Free Call</a>
-    <p class="cta-note">No pressure, no pitch deck — just straight talk about what's working and what's not.</p>
+    <h2>Stop Marketing. Start Converting.</h2>
+    <p>Book a free 30-minute strategy call. I'll look at where you are, where you want to go, and give you specific recommendations &mdash; before you spend a dollar.</p>
+    <a href="https://calendar.app.google/VJKpbpV7ZQ8uyScA8" class="cta-button" target="_blank">Book Your Free Strategy Call</a>
+    <p class="cta-note">No pitch deck. No 47-slide presentation. Just a straight conversation about what's working and what's not.</p>
   </div>
-  
+
+  <!-- ============ FOOTER ============ -->
   <div class="footer">
     <img src="AR_logo_primary.png" alt="Arcane Results" class="footer-logo">
     <div class="brand-name">Arcane Results</div>
-    <p>Invisible Systems. Visible Results.</p>
-    <p style="margin-top: 8px;">sami@arcaneresults.com</p>
+    <p class="tagline-footer">Invisible Systems. Visible Results.</p>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
     <p class="copyright">&copy; 2026 Arcane Results. All rights reserved.</p>
   </div>
-  
+
 </div>
 </body>
 </html>
